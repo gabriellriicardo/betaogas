@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
+    <!-- Favicon Links -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="192x192" href="favicon/web-app-manifest-192x192.png">
@@ -21,14 +22,15 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8fafc;
+            background-color: #f8fafc; /* slate-50 */
         }
         .hero-bg {
-            background-image: url('imagens/banner.png');
+            background-image: url('imagens/banner.png'); /* Caminho original da imagem do banner */
             background-repeat: no-repeat;
             background-size: cover;
+            /* A linha abaixo foi ajustada para posicionar o banner abaixo do menu. 5.5rem é a altura aproximada do header. */
             background-position: center 5.5rem; 
-            background-attachment: fixed;
+            background-attachment: fixed; /* Efeito Parallax */
         }
         .diferenciais-bg {
             position: relative;
@@ -41,7 +43,7 @@
         }
         .cta-button:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 20px -10px rgba(29, 78, 216, 0.6);
+            box-shadow: 0 10px 20px -10px rgba(29, 78, 216, 0.6); /* blue-700 */
         }
         .cta-button::before {
             content: '';
@@ -59,6 +61,7 @@
         .cta-button:hover::before {
             transform: translate(-50%, -50%) scale(1);
         }
+
         #cart-sidebar {
             transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
@@ -78,19 +81,27 @@
             backdrop-filter: blur(8px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
+        
+        /* --- CORREÇÃO DA COR DO MENU --- */
+        /* Cor inicial dos links do menu (brancos) */
         #header .nav-link {
-            color: white;
+            color: #334155;
             transition: color 0.3s ease-in-out;
         }
+        /* Cor dos links do menu ao passar o mouse (estado inicial) */
         #header .nav-link:hover {
-            color: #dbeafe;
+            color: #dbeafe; /* blue-200 */
         }
+        /* Cor dos links quando o menu é rolado ou no mobile (cinza-escuro) */
         #header.scrolled .nav-link, #header.mobile-menu-open .nav-link {
-            color: #334155;
+            color: #334155; /* slate-700 */
         }
+        /* Cor dos links ao passar o mouse quando o menu é rolado (azul) */
         #header.scrolled .nav-link:hover, #header.mobile-menu-open .nav-link:hover {
-            color: #1d4ed8;
+            color: #1d4ed8; /* blue-700 */
         }
+        /* --- FIM DA CORREÇÃO --- */
+        
         .reveal {
             opacity: 0;
             transform: translateY(50px);
@@ -100,6 +111,7 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
         @keyframes cart-jump {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.3); }
@@ -120,9 +132,10 @@
             100% { transform: rotate(360deg); }
         }
         .tab-button.active {
-            background-color: #2563eb;
+            background-color: #2563eb; /* blue-600 */
             color: white;
         }
+        /* Toggle Switch */
         .switch {
             position: relative;
             display: inline-block;
@@ -166,12 +179,14 @@
 </head>
 <body class="text-slate-800">
 
+    <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex justify-between items-center py-4">
                 <a href="#inicio" class="flex items-center space-x-2">
                     <img src="imagens/logo.png" alt="Logo Betão Gás" class="h-14 w-auto">
                 </a>
+                <!-- Classes de cor removidas daqui e controladas via CSS -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#diferenciais" class="font-medium transition-colors nav-link">Diferenciais</a>
                     <a href="#produtos" class="font-medium transition-colors nav-link">Produtos</a>
@@ -181,15 +196,19 @@
                 </div>
                 <div class="flex items-center">
                     <button id="cart-button" class="relative p-2">
+                        <!-- Classe text-white removida do ícone -->
                         <i class="fas fa-shopping-cart text-2xl nav-link"></i>
                         <span id="cart-counter" class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
                     </button>
+                    <!-- Mobile Menu Button -->
+                    <!-- Classe text-white removida do botão -->
                     <button id="mobile-menu-button" class="md:hidden p-2 ml-2 nav-link">
                         <i id="mobile-menu-icon" class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </nav>
         </div>
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white/90 backdrop-blur-sm">
             <a href="#diferenciais" class="block text-center py-3 text-slate-700 font-semibold hover:bg-blue-100 mobile-nav-link">Diferenciais</a>
             <a href="#produtos" class="block text-center py-3 text-slate-700 font-semibold hover:bg-blue-100 mobile-nav-link">Produtos</a>
@@ -200,6 +219,7 @@
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="inicio" class="hero-bg text-white pt-32 pb-20">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center text-center">
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight mb-4 reveal drop-shadow-xl">
@@ -215,8 +235,9 @@
             </div>
         </section>
 
+        <!-- Diferenciais Section -->
         <section id="diferenciais" class="py-20 sm:py-28 diferenciais-bg">
-            <div class="absolute inset-0 bg-slate-900/70"></div>
+            <div class="absolute inset-0 bg-slate-900/70"></div> <!-- Overlay -->
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-3xl md:text-4xl font-bold text-white">Por que escolher a Betão Gás?</h2>
@@ -248,6 +269,7 @@
             </div>
         </section>
 
+        <!-- Water Brands Section -->
         <section id="marcas-agua" class="py-16 bg-slate-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center reveal">
@@ -261,6 +283,7 @@
             </div>
         </section>
 
+        <!-- Products Section -->
         <section id="produtos" class="py-20 sm:py-28 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
@@ -268,10 +291,12 @@
                     <p class="mt-3 text-lg text-slate-600 max-w-2xl mx-auto">Qualidade e variedade para todas as suas necessidades.</p>
                 </div>
                 <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Product cards will be injected here by JavaScript -->
                 </div>
             </div>
         </section>
 
+        <!-- Gemini AI Planner Section -->
         <section id="assistente" class="py-20 sm:py-28 bg-slate-800 text-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 reveal">
@@ -279,12 +304,15 @@
                     <p class="mt-3 text-lg text-slate-300 max-w-2xl mx-auto">Use nossas ferramentas inteligentes para facilitar seu dia a dia.</p>
                 </div>
                 <div class="max-w-4xl mx-auto bg-slate-700 p-2 rounded-2xl shadow-2xl reveal">
+                    <!-- Tabs -->
                     <div class="flex flex-col sm:flex-row rounded-xl bg-slate-600">
                         <button data-tab="gas-duration" class="tab-button flex-1 p-4 font-bold rounded-lg active">Duração do Gás</button>
                         <button data-tab="recipe" class="tab-button flex-1 p-4 font-bold rounded-lg">Gerador de Receitas</button>
                         <button data-tab="hydration" class="tab-button flex-1 p-4 font-bold rounded-lg">Consumo de Água</button>
                     </div>
+                    <!-- Tab Content -->
                     <div class="p-6">
+                        <!-- Gas Duration Estimator -->
                         <div id="gas-duration-tab-content" class="tab-content-item">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                 <div>
@@ -304,6 +332,7 @@
                                 <i class="fas fa-clock"></i> Estimar Duração do Gás
                             </button>
                         </div>
+                        <!-- Recipe Generator -->
                         <div id="recipe-tab-content" class="tab-content-item hidden">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                 <div>
@@ -323,6 +352,7 @@
                                 <i class="fas fa-utensils"></i> Gerar Receita
                             </button>
                         </div>
+                         <!-- Hydration Calculator -->
                         <div id="hydration-tab-content" class="tab-content-item hidden">
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                                 <div>
@@ -349,10 +379,12 @@
                     </div>
                 </div>
                 <div id="planner-results" class="mt-8 max-w-4xl mx-auto hidden">
+                    <!-- Results will be injected here -->
                 </div>
             </div>
         </section>
 
+        <!-- Unidades Section -->
         <section id="unidades" class="py-20 sm:py-28 bg-slate-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
@@ -360,18 +392,21 @@
                     <p class="mt-3 text-lg text-slate-600 max-w-2xl mx-auto">Encontre a Betão Gás mais perto de você!</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Unidade Matriz -->
                     <div class="reveal bg-white p-8 rounded-xl shadow-lg text-center">
                         <h3 class="text-2xl font-bold text-blue-600 mb-3">Unidade Matriz</h3>
                         <p class="text-slate-600 mb-4"><i class="fas fa-map-marker-alt mr-2"></i>Av. Dr. Antônio de Castro, 446, Atalaia - Escada/PE</p>
                         <p class="text-slate-800 font-semibold"><i class="fab fa-whatsapp mr-2 text-green-500"></i>(81) 98427-5853</p>
                         <p class="text-slate-800 font-semibold"><i class="fas fa-phone mr-2"></i>(81) 99365-2461</p>
                     </div>
+                    <!-- Unidade Filial -->
                     <div class="reveal bg-white p-8 rounded-xl shadow-lg text-center" style="transition-delay: 150ms;">
                         <h3 class="text-2xl font-bold text-blue-600 mb-3">Unidade Filial</h3>
                         <p class="text-slate-600 mb-4"><i class="fas fa-map-marker-alt mr-2"></i>Av. Brasil, 1281, Novo Horizonte - Cabo de Santo Agostinho/PE</p>
                         <p class="text-slate-800 font-semibold"><i class="fab fa-whatsapp mr-2 text-green-500"></i>(81) 98219-5177</p>
                         <p class="text-slate-800 font-semibold"><i class="fas fa-phone mr-2"></i>(81) 99242-7576</p>
                     </div>
+                    <!-- Unidade PDV -->
                     <div class="reveal bg-white p-8 rounded-xl shadow-lg text-center" style="transition-delay: 300ms;">
                         <h3 class="text-2xl font-bold text-blue-600 mb-3">Unidade PDV</h3>
                         <p class="text-slate-600 mb-4"><i class="fas fa-map-marker-alt mr-2"></i>R. José Ribeiro, 214, Riacho do Navio - Escada/PE</p>
@@ -382,6 +417,7 @@
             </div>
         </section>
 
+        <!-- Sobre Nós Section -->
         <section id="sobre" class="py-20 sm:py-28 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
@@ -402,6 +438,7 @@
             </div>
         </section>
 
+        <!-- Safety Tips Section -->
         <section id="dicas" class="py-20 sm:py-28 bg-slate-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
@@ -410,6 +447,7 @@
                 </div>
                 <div class="max-w-3xl mx-auto">
                     <div id="accordion-container" class="space-y-4 mb-12">
+                        <!-- Accordion items will be injected here by JavaScript -->
                     </div>
                     <div class="reveal bg-white p-8 rounded-2xl text-center shadow-lg">
                         <h3 class="text-2xl font-bold text-slate-800 mb-3">✨ Analisador de Segurança</h3>
@@ -424,6 +462,7 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-slate-900 text-slate-300">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
             <img src="imagens/logo.png" alt="Logo da Betão Gás" class="h-16 w-auto mx-auto mb-4">
@@ -440,17 +479,22 @@
         </div>
     </footer>
     
+    <!-- Shopping Cart Sidebar -->
     <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full flex flex-col">
+        <!-- Header -->
         <div class="flex justify-between items-center p-5 border-b shrink-0">
             <h3 class="text-2xl font-bold text-slate-900">Seu Pedido</h3>
             <button id="close-cart-button" class="text-slate-500 hover:text-red-500 text-3xl">&times;</button>
         </div>
         
+        <!-- Scrollable main content -->
         <div class="flex-grow p-5 overflow-y-auto min-h-0">
             <div id="cart-items">
                 <p id="cart-empty-message" class="text-slate-500">Seu carrinho está vazio.</p>
+                <!-- Cart items will be injected here -->
             </div>
             
+            <!-- Form details (only shown when cart is not empty) -->
             <div id="cart-form-area" class="hidden">
                 <div class="space-y-4 my-4 pt-4 border-t">
                     <div>
@@ -498,6 +542,7 @@
             </div>
         </div>
 
+        <!-- Pinned Footer for Checkout -->
         <div id="cart-checkout-area" class="p-5 border-t bg-slate-50 hidden shrink-0">
             <div class="flex justify-between items-center mb-2">
                 <span class="text-slate-600">Subtotal</span>
@@ -518,6 +563,7 @@
     </div>
     <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-40 hidden"></div>
 
+    <!-- AI Response Modal -->
     <div id="ai-modal" class="fixed inset-0 bg-black bg-opacity-60 z-50 hidden items-center justify-center p-4">
         <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full flex flex-col" style="max-height: 85vh;">
             <div class="p-6 border-b flex justify-between items-center shrink-0">
@@ -525,10 +571,12 @@
                  <button id="close-ai-modal" class="text-slate-500 hover:text-red-500 text-3xl">&times;</button>
             </div>
             <div id="ai-modal-content" class="p-6 overflow-y-auto">
+                <!-- AI response will be injected here -->
             </div>
         </div>
     </div>
     
+    <!-- Notification Toast -->
     <div id="notification-toast" class="fixed bottom-5 right-5 bg-slate-800 text-white py-3 px-5 rounded-lg shadow-xl transform translate-y-20 opacity-0 transition-all duration-500 z-[100]">
         <p id="notification-message"></p>
     </div>
@@ -537,6 +585,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Data and Constants ---
     const products = [
         { id: 1, name: 'Gás de Cozinha P13', price: 100.00, description: 'O gás que não te deixa na mão.', icon: 'fa-fire-flame-curved', color: 'red', delivery: true },
         { id: 2, name: 'Gás Industrial P45', price: 420.00, description: 'Para comércios e condomínios.', icon: 'fa-fire-burner', color: 'orange', delivery: false },
@@ -547,11 +596,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const locations = {
         "Escada": {
             neighborhoods: ["Atalaia", "Riacho do Navio", "Centro", "Jaguaribe", "Viradouro", "Outro"],
-            whatsapp: "5581984275853"
+            whatsapp: "5581984275853" // Matriz / PDV
         },
         "Cabo de Santo Agostinho": {
             neighborhoods: ["Novo Horizonte", "Centro", "Charneca", "Ponte dos Carvalhos", "Outro"],
-            whatsapp: "5581982195177"
+            whatsapp: "5581982195177" // Filial
         }
     };
 
@@ -565,6 +614,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let cart = [];
     const colorMap = { red: 'red-500', blue: 'blue-500', orange: 'orange-500', gray: 'slate-500' };
 
+    // --- DOM Elements ---
     const productList = document.getElementById('product-list');
     const cartButton = document.getElementById('cart-button');
     const closeCartButton = document.getElementById('close-cart-button');
@@ -593,6 +643,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const otherNeighborhoodWrapper = document.getElementById('other-neighborhood-wrapper');
     const otherNeighborhoodInput = document.getElementById('other-neighborhood-input');
     
+    // Gemini Feature Elements
     const plannerResultsContainer = document.getElementById('planner-results');
     const calculateHydrationButton = document.getElementById('calculate-hydration');
     const generateRecipeButton = document.getElementById('generate-recipe');
@@ -613,10 +664,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuIcon = document.getElementById('mobile-menu-icon');
 
+    // Notification Elements
     const notificationToast = document.getElementById('notification-toast');
     const notificationMessage = document.getElementById('notification-message');
     let notificationTimeout;
 
+
+    // --- Gemini API Function ---
     async function callGemini(prompt, isJson = false) {
         const apiKey = "AIzaSyCafcvcSSve2n-6hGQ_3VIxsR4pKEcgNX4"; 
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
@@ -654,16 +708,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             console.error("Erro ao chamar a API Gemini:", error);
+            // Show a user-friendly error message
             showNotification('Erro de comunicação com o assistente.', 'error');
             return null;
         }
     }
 
+    // --- UI Functions ---
+    
+    /**
+     * Displays a toast notification at the bottom-right of the screen.
+     * @param {string} message The message to display.
+     * @param {'info' | 'success' | 'warning' | 'error'} type The type of notification, for styling.
+     */
     function showNotification(message, type = 'info') {
         clearTimeout(notificationTimeout);
 
         notificationMessage.textContent = message;
-        notificationToast.className = 'fixed bottom-5 right-5 text-white py-3 px-5 rounded-lg shadow-xl transform transition-all duration-500 z-[100]';
+        notificationToast.className = 'fixed bottom-5 right-5 text-white py-3 px-5 rounded-lg shadow-xl transform transition-all duration-500 z-[100]'; // Reset classes
         
         switch (type) {
             case 'error':
@@ -777,6 +839,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateCart() {
+        // Ensure the list container exists, or create it
         let itemsListContainer = cartItemsContainer.querySelector('#cart-items-list');
         if (!itemsListContainer) {
             itemsListContainer = document.createElement('div');
@@ -804,7 +867,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const emptyMsg = cartItemsContainer.querySelector('#cart-empty-message');
             if (emptyMsg) emptyMsg.style.display = 'none';
             
-            itemsListContainer.innerHTML = '';
+            itemsListContainer.innerHTML = ''; // Clear only the list
             cart.forEach(item => {
                 const cartItemHTML = `
                     <div class="flex justify-between items-center mb-4">
@@ -914,6 +977,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.1 });
 
+    // --- Gemini Feature Functions ---
     async function handleGasEstimation() {
         const people = document.getElementById('gas-people').value;
         const frequency = document.getElementById('gas-frequency').value;
@@ -1060,6 +1124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- Event Listeners ---
     cartButton.addEventListener('click', toggleCart);
     closeCartButton.addEventListener('click', toggleCart);
     cartOverlay.addEventListener('click', toggleCart);
@@ -1070,13 +1135,15 @@ document.addEventListener('DOMContentLoaded', () => {
     analyzeSafetyButton.addEventListener('click', handleSafetyAnalysis);
     calculateGasDurationButton.addEventListener('click', handleGasEstimation);
     
+    // Modal closing logic
     closeAiModalButton.addEventListener('click', () => aiModal.style.display = 'none');
     aiModal.addEventListener('click', (e) => {
-        if (e.target === aiModal) {
+        if (e.target === aiModal) { // Close only if clicking on the overlay itself
             aiModal.style.display = 'none';
         }
     });
 
+    // Mobile Menu Toggle
     mobileMenuButton.addEventListener('click', () => {
         const isOpening = mobileMenu.classList.contains('hidden');
         mobileMenu.classList.toggle('hidden');
@@ -1089,10 +1156,12 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenuIcon.classList.remove('fa-times');
             mobileMenuIcon.classList.add('fa-bars');
             header.classList.remove('mobile-menu-open');
+            // Re-check scroll position after closing
             handleScroll();
         }
     });
     
+    // Close mobile menu when a link is clicked
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
@@ -1116,7 +1185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             Object.values(tabContents).forEach(content => content.style.display = 'none');
             tabContents[button.dataset.tab].style.display = 'block';
-            plannerResultsContainer.style.display = 'none';
+            plannerResultsContainer.style.display = 'none'; // Hide results when switching tabs
         });
     });
     
@@ -1159,6 +1228,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const content = toggle.nextElementSibling;
             const isOpening = !content.style.maxHeight || content.style.maxHeight === "0px";
 
+            // Close all other accordions
             document.querySelectorAll('.accordion-content').forEach(el => {
                 if (el !== content) {
                     el.style.maxHeight = null;
@@ -1166,6 +1236,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            // Open or close the clicked one
             if (isOpening) {
                 icon.classList.add('rotate-180');
                 content.style.maxHeight = content.scrollHeight + "px";
@@ -1176,7 +1247,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Initialization ---
     function initializeTabs() {
+        // Set initial state
         document.querySelector('.tab-button[data-tab="gas-duration"]').classList.add('active');
         Object.values(tabContents).forEach(content => content.style.display = 'none');
         tabContents['gas-duration'].style.display = 'block';
