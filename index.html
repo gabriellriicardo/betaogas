@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Betão Gás e Água - Peça Online em Escada, PE</title>
+    <title>Betão Gás e Água</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
-    <!-- Favicon Links -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="192x192" href="favicon/web-app-manifest-192x192.png">
@@ -22,19 +21,17 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
+            background-color: #f8fafc;
         }
         .hero-bg {
-            background-image: linear-gradient(to bottom, rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.3)), url('https://images.unsplash.com/photo-1561063203-c593857b62a6?q=80&w=1974&auto=format&fit=crop');
+            background-image: url('imagens/banner.png');
+            background-repeat: no-repeat;
             background-size: cover;
-            background-position: center;
+            background-position: center 5.5rem; 
+            background-attachment: fixed;
         }
         .diferenciais-bg {
             position: relative;
-            background-image: url('imagens/banner.png'); /* CORRIGIDO */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed; /* Efeito Parallax */
         }
         .cta-button {
             position: relative;
@@ -44,7 +41,7 @@
         }
         .cta-button:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 20px -10px rgba(29, 78, 216, 0.6); /* blue-700 */
+            box-shadow: 0 10px 20px -10px rgba(29, 78, 216, 0.6);
         }
         .cta-button::before {
             content: '';
@@ -62,7 +59,6 @@
         .cta-button:hover::before {
             transform: translate(-50%, -50%) scale(1);
         }
-
         #cart-sidebar {
             transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
@@ -82,13 +78,19 @@
             backdrop-filter: blur(8px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
+        #header .nav-link {
+            color: white;
+            transition: color 0.3s ease-in-out;
+        }
+        #header .nav-link:hover {
+            color: #dbeafe;
+        }
         #header.scrolled .nav-link, #header.mobile-menu-open .nav-link {
-            color: #334155; /* slate-700 */
+            color: #334155;
         }
         #header.scrolled .nav-link:hover, #header.mobile-menu-open .nav-link:hover {
-            color: #1d4ed8; /* blue-700 */
+            color: #1d4ed8;
         }
-        
         .reveal {
             opacity: 0;
             transform: translateY(50px);
@@ -98,7 +100,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
         @keyframes cart-jump {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.3); }
@@ -119,10 +120,9 @@
             100% { transform: rotate(360deg); }
         }
         .tab-button.active {
-            background-color: #2563eb; /* blue-600 */
+            background-color: #2563eb;
             color: white;
         }
-        /* Toggle Switch */
         .switch {
             position: relative;
             display: inline-block;
@@ -166,33 +166,30 @@
 </head>
 <body class="text-slate-800">
 
-    <!-- Header -->
     <header id="header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex justify-between items-center py-4">
                 <a href="#inicio" class="flex items-center space-x-2">
                     <img src="imagens/logo.png" alt="Logo Betão Gás" class="h-14 w-auto">
                 </a>
-                <div class="hidden md:flex items-center space-x-8 text-white">
-                    <a href="#diferenciais" class="font-medium hover:text-blue-300 transition-colors nav-link">Diferenciais</a>
-                    <a href="#produtos" class="font-medium hover:text-blue-300 transition-colors nav-link">Produtos</a>
-                    <a href="#assistente" class="font-medium hover:text-blue-300 transition-colors nav-link">✨ Assistente</a>
-                    <a href="#unidades" class="font-medium hover:text-blue-300 transition-colors nav-link">Unidades</a>
-                    <a href="#sobre" class="font-medium hover:text-blue-300 transition-colors nav-link">Nossa História</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#diferenciais" class="font-medium transition-colors nav-link">Diferenciais</a>
+                    <a href="#produtos" class="font-medium transition-colors nav-link">Produtos</a>
+                    <a href="#assistente" class="font-medium transition-colors nav-link">✨ Assistente</a>
+                    <a href="#unidades" class="font-medium transition-colors nav-link">Unidades</a>
+                    <a href="#sobre" class="font-medium transition-colors nav-link">Nossa História</a>
                 </div>
                 <div class="flex items-center">
                     <button id="cart-button" class="relative p-2">
-                        <i class="fas fa-shopping-cart text-2xl text-white nav-link"></i>
+                        <i class="fas fa-shopping-cart text-2xl nav-link"></i>
                         <span id="cart-counter" class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
                     </button>
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-button" class="md:hidden p-2 ml-2 text-white nav-link">
+                    <button id="mobile-menu-button" class="md:hidden p-2 ml-2 nav-link">
                         <i id="mobile-menu-icon" class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </nav>
         </div>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white/90 backdrop-blur-sm">
             <a href="#diferenciais" class="block text-center py-3 text-slate-700 font-semibold hover:bg-blue-100 mobile-nav-link">Diferenciais</a>
             <a href="#produtos" class="block text-center py-3 text-slate-700 font-semibold hover:bg-blue-100 mobile-nav-link">Produtos</a>
@@ -203,13 +200,12 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section id="inicio" class="hero-bg text-white pt-32 pb-20">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center text-center">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight mb-4 reveal">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight mb-4 reveal drop-shadow-xl">
                     INDISPENSÁVEL É ABASTECER SUA FAMÍLIA
                 </h1>
-                <p class="text-lg md:text-2xl font-light max-w-3xl mb-10 reveal" style="transition-delay: 200ms;">
+                <p class="text-lg md:text-2xl font-light max-w-3xl mb-10 reveal drop-shadow" style="transition-delay: 200ms;">
                     Escolha seus produtos, adicione ao carrinho e receba no conforto da sua casa. Simples, rápido e seguro!
                 </p>
                 <a href="#produtos" class="bg-blue-600 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-blue-700 cta-button inline-flex items-center space-x-3 reveal" style="transition-delay: 400ms;">
@@ -219,9 +215,8 @@
             </div>
         </section>
 
-        <!-- Diferenciais Section -->
         <section id="diferenciais" class="py-20 sm:py-28 diferenciais-bg">
-            <div class="absolute inset-0 bg-slate-900/70"></div> <!-- Overlay -->
+            <div class="absolute inset-0 bg-slate-900/70"></div>
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-3xl md:text-4xl font-bold text-white">Por que escolher a Betão Gás?</h2>
@@ -253,7 +248,6 @@
             </div>
         </section>
 
-        <!-- Water Brands Section -->
         <section id="marcas-agua" class="py-16 bg-slate-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center reveal">
@@ -267,7 +261,6 @@
             </div>
         </section>
 
-        <!-- Products Section -->
         <section id="produtos" class="py-20 sm:py-28 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
@@ -275,12 +268,10 @@
                     <p class="mt-3 text-lg text-slate-600 max-w-2xl mx-auto">Qualidade e variedade para todas as suas necessidades.</p>
                 </div>
                 <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Product cards will be injected here by JavaScript -->
                 </div>
             </div>
         </section>
 
-        <!-- Gemini AI Planner Section -->
         <section id="assistente" class="py-20 sm:py-28 bg-slate-800 text-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12 reveal">
@@ -288,24 +279,21 @@
                     <p class="mt-3 text-lg text-slate-300 max-w-2xl mx-auto">Use nossas ferramentas inteligentes para facilitar seu dia a dia.</p>
                 </div>
                 <div class="max-w-4xl mx-auto bg-slate-700 p-2 rounded-2xl shadow-2xl reveal">
-                    <!-- Tabs -->
                     <div class="flex flex-col sm:flex-row rounded-xl bg-slate-600">
                         <button data-tab="gas-duration" class="tab-button flex-1 p-4 font-bold rounded-lg active">Duração do Gás</button>
                         <button data-tab="recipe" class="tab-button flex-1 p-4 font-bold rounded-lg">Gerador de Receitas</button>
                         <button data-tab="hydration" class="tab-button flex-1 p-4 font-bold rounded-lg">Consumo de Água</button>
                     </div>
-                    <!-- Tab Content -->
                     <div class="p-6">
-                        <!-- Gas Duration Estimator -->
                         <div id="gas-duration-tab-content" class="tab-content-item">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                 <div>
                                     <label for="gas-people" class="block text-xs font-bold mb-1">Pessoas em casa:</label>
-                                    <input type="number" id="gas-people" min="1" value="3" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <input type="number" id="gas-people" min="1" value="3" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 text-white">
                                 </div>
                                 <div>
                                     <label for="gas-frequency" class="block text-xs font-bold mb-1">Frequência de Uso:</label>
-                                    <select id="gas-frequency" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <select id="gas-frequency" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 text-white">
                                         <option value="diariamente">Diariamente</option>
                                         <option value="algumas vezes na semana" selected>Algumas vezes na semana</option>
                                         <option value="raramente">Raramente</option>
@@ -316,12 +304,11 @@
                                 <i class="fas fa-clock"></i> Estimar Duração do Gás
                             </button>
                         </div>
-                        <!-- Recipe Generator -->
                         <div id="recipe-tab-content" class="tab-content-item hidden">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                 <div>
                                     <label for="recipe-type" class="block text-xs font-bold mb-1">Tipo de Refeição:</label>
-                                    <select id="recipe-type" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <select id="recipe-type" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 text-white">
                                         <option value="Almoço">Almoço</option>
                                         <option value="Jantar" selected>Jantar</option>
                                         <option value="Lanche">Lanche</option>
@@ -329,27 +316,26 @@
                                 </div>
                                 <div>
                                     <label for="recipe-ingredient" class="block text-xs font-bold mb-1">Ingrediente Principal:</label>
-                                    <input type="text" id="recipe-ingredient" value="Frango" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <input type="text" id="recipe-ingredient" value="Frango" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 text-white">
                                 </div>
                             </div>
                              <button id="generate-recipe" class="w-full bg-red-500 text-white p-4 rounded-lg font-bold text-lg flex items-center justify-center gap-2 hover:bg-red-600 cta-button">
                                 <i class="fas fa-utensils"></i> Gerar Receita
                             </button>
                         </div>
-                         <!-- Hydration Calculator -->
                         <div id="hydration-tab-content" class="tab-content-item hidden">
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                                 <div>
                                     <label for="hydro-adults" class="block text-xs font-bold mb-1">Adultos:</label>
-                                    <input type="number" id="hydro-adults" min="1" value="2" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <input type="number" id="hydro-adults" min="1" value="2" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 text-white">
                                 </div>
                                 <div>
                                     <label for="hydro-children" class="block text-xs font-bold mb-1">Crianças:</label>
-                                    <input type="number" id="hydro-children" min="0" value="1" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <input type="number" id="hydro-children" min="0" value="1" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 text-white">
                                 </div>
                                 <div>
                                     <label for="hydro-activity" class="block text-xs font-bold mb-1">Nível de Atividade:</label>
-                                    <select id="hydro-activity" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <select id="hydro-activity" class="w-full p-3 border-slate-500 bg-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 text-white">
                                         <option value="baixo">Baixo</option>
                                         <option value="moderado" selected>Moderado</option>
                                         <option value="alto">Alto</option>
@@ -363,12 +349,10 @@
                     </div>
                 </div>
                 <div id="planner-results" class="mt-8 max-w-4xl mx-auto hidden">
-                    <!-- Results will be injected here -->
                 </div>
             </div>
         </section>
 
-        <!-- Unidades Section -->
         <section id="unidades" class="py-20 sm:py-28 bg-slate-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
@@ -376,21 +360,18 @@
                     <p class="mt-3 text-lg text-slate-600 max-w-2xl mx-auto">Encontre a Betão Gás mais perto de você!</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Unidade Matriz -->
                     <div class="reveal bg-white p-8 rounded-xl shadow-lg text-center">
                         <h3 class="text-2xl font-bold text-blue-600 mb-3">Unidade Matriz</h3>
                         <p class="text-slate-600 mb-4"><i class="fas fa-map-marker-alt mr-2"></i>Av. Dr. Antônio de Castro, 446, Atalaia - Escada/PE</p>
                         <p class="text-slate-800 font-semibold"><i class="fab fa-whatsapp mr-2 text-green-500"></i>(81) 98427-5853</p>
                         <p class="text-slate-800 font-semibold"><i class="fas fa-phone mr-2"></i>(81) 99365-2461</p>
                     </div>
-                    <!-- Unidade Filial -->
                     <div class="reveal bg-white p-8 rounded-xl shadow-lg text-center" style="transition-delay: 150ms;">
                         <h3 class="text-2xl font-bold text-blue-600 mb-3">Unidade Filial</h3>
                         <p class="text-slate-600 mb-4"><i class="fas fa-map-marker-alt mr-2"></i>Av. Brasil, 1281, Novo Horizonte - Cabo de Santo Agostinho/PE</p>
                         <p class="text-slate-800 font-semibold"><i class="fab fa-whatsapp mr-2 text-green-500"></i>(81) 98219-5177</p>
                         <p class="text-slate-800 font-semibold"><i class="fas fa-phone mr-2"></i>(81) 99242-7576</p>
                     </div>
-                    <!-- Unidade PDV -->
                     <div class="reveal bg-white p-8 rounded-xl shadow-lg text-center" style="transition-delay: 300ms;">
                         <h3 class="text-2xl font-bold text-blue-600 mb-3">Unidade PDV</h3>
                         <p class="text-slate-600 mb-4"><i class="fas fa-map-marker-alt mr-2"></i>R. José Ribeiro, 214, Riacho do Navio - Escada/PE</p>
@@ -401,7 +382,6 @@
             </div>
         </section>
 
-        <!-- Sobre Nós Section -->
         <section id="sobre" class="py-20 sm:py-28 bg-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
@@ -422,7 +402,6 @@
             </div>
         </section>
 
-        <!-- Safety Tips Section -->
         <section id="dicas" class="py-20 sm:py-28 bg-slate-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
@@ -431,7 +410,6 @@
                 </div>
                 <div class="max-w-3xl mx-auto">
                     <div id="accordion-container" class="space-y-4 mb-12">
-                        <!-- Accordion items will be injected here by JavaScript -->
                     </div>
                     <div class="reveal bg-white p-8 rounded-2xl text-center shadow-lg">
                         <h3 class="text-2xl font-bold text-slate-800 mb-3">✨ Analisador de Segurança</h3>
@@ -446,7 +424,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-slate-900 text-slate-300">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
             <img src="imagens/logo.png" alt="Logo da Betão Gás" class="h-16 w-auto mx-auto mb-4">
@@ -463,22 +440,17 @@
         </div>
     </footer>
     
-    <!-- Shopping Cart Sidebar -->
     <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full flex flex-col">
-        <!-- Header -->
         <div class="flex justify-between items-center p-5 border-b shrink-0">
             <h3 class="text-2xl font-bold text-slate-900">Seu Pedido</h3>
             <button id="close-cart-button" class="text-slate-500 hover:text-red-500 text-3xl">&times;</button>
         </div>
         
-        <!-- Scrollable main content -->
         <div class="flex-grow p-5 overflow-y-auto min-h-0">
             <div id="cart-items">
                 <p id="cart-empty-message" class="text-slate-500">Seu carrinho está vazio.</p>
-                <!-- Cart items will be injected here -->
             </div>
             
-            <!-- Form details (only shown when cart is not empty) -->
             <div id="cart-form-area" class="hidden">
                 <div class="space-y-4 my-4 pt-4 border-t">
                     <div>
@@ -526,7 +498,6 @@
             </div>
         </div>
 
-        <!-- Pinned Footer for Checkout -->
         <div id="cart-checkout-area" class="p-5 border-t bg-slate-50 hidden shrink-0">
             <div class="flex justify-between items-center mb-2">
                 <span class="text-slate-600">Subtotal</span>
@@ -547,7 +518,6 @@
     </div>
     <div id="cart-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-40 hidden"></div>
 
-    <!-- AI Response Modal -->
     <div id="ai-modal" class="fixed inset-0 bg-black bg-opacity-60 z-50 hidden items-center justify-center p-4">
         <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full flex flex-col" style="max-height: 85vh;">
             <div class="p-6 border-b flex justify-between items-center shrink-0">
@@ -555,9 +525,12 @@
                  <button id="close-ai-modal" class="text-slate-500 hover:text-red-500 text-3xl">&times;</button>
             </div>
             <div id="ai-modal-content" class="p-6 overflow-y-auto">
-                <!-- AI response will be injected here -->
             </div>
         </div>
+    </div>
+    
+    <div id="notification-toast" class="fixed bottom-5 right-5 bg-slate-800 text-white py-3 px-5 rounded-lg shadow-xl transform translate-y-20 opacity-0 transition-all duration-500 z-[100]">
+        <p id="notification-message"></p>
     </div>
 
 
@@ -574,11 +547,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const locations = {
         "Escada": {
             neighborhoods: ["Atalaia", "Riacho do Navio", "Centro", "Jaguaribe", "Viradouro", "Outro"],
-            whatsapp: "5581984275853" // Matriz / PDV
+            whatsapp: "5581984275853"
         },
         "Cabo de Santo Agostinho": {
             neighborhoods: ["Novo Horizonte", "Centro", "Charneca", "Ponte dos Carvalhos", "Outro"],
-            whatsapp: "5581982195177" // Filial
+            whatsapp: "5581982195177"
         }
     };
 
@@ -592,7 +565,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let cart = [];
     const colorMap = { red: 'red-500', blue: 'blue-500', orange: 'orange-500', gray: 'slate-500' };
 
-    // --- DOM Elements ---
     const productList = document.getElementById('product-list');
     const cartButton = document.getElementById('cart-button');
     const closeCartButton = document.getElementById('close-cart-button');
@@ -603,7 +575,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartSubtotal = document.getElementById('cart-subtotal');
     const cartDeliveryFee = document.getElementById('cart-delivery-fee');
     const cartTotal = document.getElementById('cart-total');
-    const cartEmptyMessage = document.getElementById('cart-empty-message');
     const cartFormArea = document.getElementById('cart-form-area');
     const cartCheckoutArea = document.getElementById('cart-checkout-area');
     const checkoutButton = document.getElementById('checkout-button');
@@ -622,7 +593,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const otherNeighborhoodWrapper = document.getElementById('other-neighborhood-wrapper');
     const otherNeighborhoodInput = document.getElementById('other-neighborhood-input');
     
-    // Gemini Feature Elements
     const plannerResultsContainer = document.getElementById('planner-results');
     const calculateHydrationButton = document.getElementById('calculate-hydration');
     const generateRecipeButton = document.getElementById('generate-recipe');
@@ -643,10 +613,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuIcon = document.getElementById('mobile-menu-icon');
 
+    const notificationToast = document.getElementById('notification-toast');
+    const notificationMessage = document.getElementById('notification-message');
+    let notificationTimeout;
 
-    // --- Gemini API Function ---
     async function callGemini(prompt, isJson = false) {
-        const apiKey = "AIzaSyCafcvcSSve2n-6hGQ_3VIxsR4pKEcgNX4"; // API Key inserida aqui
+        const apiKey = "AIzaSyCafcvcSSve2n-6hGQ_3VIxsR4pKEcgNX4"; 
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
         
         const payload = {
@@ -682,11 +654,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (error) {
             console.error("Erro ao chamar a API Gemini:", error);
+            showNotification('Erro de comunicação com o assistente.', 'error');
             return null;
         }
     }
 
-    // --- UI Functions ---
+    function showNotification(message, type = 'info') {
+        clearTimeout(notificationTimeout);
+
+        notificationMessage.textContent = message;
+        notificationToast.className = 'fixed bottom-5 right-5 text-white py-3 px-5 rounded-lg shadow-xl transform transition-all duration-500 z-[100]';
+        
+        switch (type) {
+            case 'error':
+                notificationToast.classList.add('bg-red-600');
+                break;
+            case 'warning':
+                notificationToast.classList.add('bg-yellow-500', 'text-slate-800');
+                break;
+            case 'success':
+                 notificationToast.classList.add('bg-green-600');
+                 break;
+            default:
+                notificationToast.classList.add('bg-slate-800');
+                break;
+        }
+
+        notificationToast.classList.add('translate-y-0', 'opacity-100');
+        notificationToast.classList.remove('translate-y-20', 'opacity-0');
+
+        notificationTimeout = setTimeout(() => {
+            notificationToast.classList.remove('translate-y-0', 'opacity-100');
+            notificationToast.classList.add('translate-y-20', 'opacity-0');
+        }, 4000);
+    }
+
     function showLoading(container) {
         container.innerHTML = '<div class="flex justify-center items-center p-8"><div class="loader"></div></div>';
         if (container !== aiModalContent) {
@@ -732,7 +734,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <i class="fas fa-chevron-down transition-transform duration-300"></i>
                     </button>
                     <div class="accordion-content px-5 pb-5 text-slate-600">
-                        ${tip.content}
+                        <p>${tip.content}</p>
                     </div>
                 </div>
             `;
@@ -755,6 +757,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.push({ ...product, quantity: 1 });
         }
         
+        showNotification(`${product.name} adicionado ao carrinho!`, 'success');
         cartButton.classList.add('cart-jump-animation');
         setTimeout(() => cartButton.classList.remove('cart-jump-animation'), 500);
 
@@ -774,9 +777,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateCart() {
-        const itemsContainer = cartItemsContainer.querySelector('#cart-items-list') || document.createElement('div');
-        itemsContainer.id = 'cart-items-list';
-        itemsContainer.innerHTML = '';
+        let itemsListContainer = cartItemsContainer.querySelector('#cart-items-list');
+        if (!itemsListContainer) {
+            itemsListContainer = document.createElement('div');
+            itemsListContainer.id = 'cart-items-list';
+            cartItemsContainer.appendChild(itemsListContainer);
+        }
 
         const deliveryFee = 5.00;
         const isDeliveryEligible = cart.some(item => item.delivery);
@@ -795,7 +801,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             cartFormArea.style.display = 'block';
             cartCheckoutArea.style.display = 'block';
+            const emptyMsg = cartItemsContainer.querySelector('#cart-empty-message');
+            if (emptyMsg) emptyMsg.style.display = 'none';
             
+            itemsListContainer.innerHTML = '';
             cart.forEach(item => {
                 const cartItemHTML = `
                     <div class="flex justify-between items-center mb-4">
@@ -810,10 +819,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                 `;
-                itemsContainer.innerHTML += cartItemHTML;
+                itemsListContainer.innerHTML += cartItemHTML;
             });
-            cartItemsContainer.innerHTML = '';
-            cartItemsContainer.appendChild(itemsContainer);
         }
 
         const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -835,9 +842,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let neighborhood = neighborhoodSelect.value;
         const hasSpecialGas = cart.some(item => !item.delivery);
 
-        if (cart.length === 0) { alert('Seu carrinho está vazio!'); return; }
-        if (!customerName) { alert('Por favor, informe seu nome.'); customerNameInput.focus(); return; }
-        if (!city) { alert('Por favor, selecione a cidade.'); return; }
+        if (cart.length === 0) { showNotification('Seu carrinho está vazio!', 'warning'); return; }
+        if (!customerName) { showNotification('Por favor, informe seu nome.', 'error'); customerNameInput.focus(); return; }
+        if (!city) { showNotification('Por favor, selecione a cidade.', 'error'); return; }
 
         let whatsappNumber = locations[city]?.whatsapp || locations['Escada'].whatsapp;
         let fullAddress = '';
@@ -845,25 +852,25 @@ document.addEventListener('DOMContentLoaded', () => {
         if (neighborhood === 'Outro') {
             neighborhood = otherNeighborhoodInput.value.trim();
             if (!neighborhood) {
-                alert('Por favor, digite o nome do seu bairro.');
+                showNotification('Por favor, digite o nome do seu bairro.', 'error');
                 otherNeighborhoodInput.focus();
                 return;
             }
         }
         
-        if (!neighborhood) { alert('Por favor, selecione o bairro.'); return; }
+        if (!neighborhood) { showNotification('Por favor, selecione o bairro.', 'error'); return; }
 
         if (wantsDelivery) {
             const streetAddress = addressInput.value.trim();
             if (!streetAddress) {
-                alert('Para entrega, por favor preencha a Rua e o Número.');
+                showNotification('Para entrega, preencha a Rua e o Número.', 'error');
                 addressInput.focus();
                 return;
             }
             fullAddress = `${streetAddress}, ${neighborhood}, ${city}`;
         }
         
-        if (!paymentMethod) { alert('Por favor, escolha uma forma de pagamento.'); return; }
+        if (!paymentMethod) { showNotification('Por favor, escolha uma forma de pagamento.', 'error'); return; }
 
         let message = `Olá *Betão Gás*! ⛽💧\n\nMeu nome é *${customerName}* e gostaria de fazer o seguinte pedido:\n\n`;
         cart.forEach(item => { message += `▪️ ${item.quantity}x ${item.name}\n`; });
@@ -891,14 +898,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleScroll() {
-        if (window.scrollY > 50) {
+        const isMenuOpen = !mobileMenu.classList.contains('hidden');
+        if (window.scrollY > 50 || isMenuOpen) {
             header.classList.add('scrolled');
         } else {
-            if (!mobileMenu.classList.contains('hidden')) {
-                // Do not remove scrolled class if mobile menu is open
-            } else {
-                header.classList.remove('scrolled');
-            }
+            header.classList.remove('scrolled');
         }
     }
 
@@ -910,7 +914,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, { threshold: 0.1 });
 
-    // --- Gemini Feature Functions ---
     async function handleGasEstimation() {
         const people = document.getElementById('gas-people').value;
         const frequency = document.getElementById('gas-frequency').value;
@@ -946,7 +949,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const activity = document.getElementById('hydro-activity').value;
         
         if (adults < 1 && children < 1) {
-            alert("Por favor, insira pelo menos 1 pessoa.");
+            showNotification("Por favor, insira pelo menos 1 pessoa.", 'warning');
             return;
         }
 
@@ -980,7 +983,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const mealType = document.getElementById('recipe-type').value;
         const mainIngredient = document.getElementById('recipe-ingredient').value;
         if (!mainIngredient) {
-            alert("Por favor, insira um ingrediente principal.");
+            showNotification("Por favor, insira um ingrediente principal.", 'warning');
             return;
         }
 
@@ -1019,7 +1022,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function handleSafetyAnalysis() {
         const description = safetyDescriptionInput.value.trim();
         if (!description) {
-            alert("Por favor, descreva onde você guarda o botijão.");
+            showNotification("Por favor, descreva onde você guarda o botijão.", 'warning');
             return;
         }
 
@@ -1057,7 +1060,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Event Listeners ---
     cartButton.addEventListener('click', toggleCart);
     closeCartButton.addEventListener('click', toggleCart);
     cartOverlay.addEventListener('click', toggleCart);
@@ -1068,36 +1070,36 @@ document.addEventListener('DOMContentLoaded', () => {
     analyzeSafetyButton.addEventListener('click', handleSafetyAnalysis);
     calculateGasDurationButton.addEventListener('click', handleGasEstimation);
     
-    // Modal closing logic
     closeAiModalButton.addEventListener('click', () => aiModal.style.display = 'none');
     aiModal.addEventListener('click', (e) => {
-        if (e.target === aiModal) { // Close only if clicking on the overlay itself
+        if (e.target === aiModal) {
             aiModal.style.display = 'none';
         }
     });
 
-    // Mobile Menu Toggle
     mobileMenuButton.addEventListener('click', () => {
-        const isOpen = !mobileMenu.classList.contains('hidden');
+        const isOpening = mobileMenu.classList.contains('hidden');
         mobileMenu.classList.toggle('hidden');
-        if (isOpen) {
+        
+        if (isOpening) {
+            mobileMenuIcon.classList.remove('fa-bars');
+            mobileMenuIcon.classList.add('fa-times');
+            header.classList.add('mobile-menu-open', 'scrolled');
+        } else {
             mobileMenuIcon.classList.remove('fa-times');
             mobileMenuIcon.classList.add('fa-bars');
             header.classList.remove('mobile-menu-open');
-        } else {
-            mobileMenuIcon.classList.remove('fa-bars');
-            mobileMenuIcon.classList.add('fa-times');
-            header.classList.add('mobile-menu-open');
+            handleScroll();
         }
     });
     
-    // Close mobile menu when a link is clicked
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
             mobileMenuIcon.classList.remove('fa-times');
             mobileMenuIcon.classList.add('fa-bars');
             header.classList.remove('mobile-menu-open');
+            handleScroll();
         });
     });
 
@@ -1114,7 +1116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             Object.values(tabContents).forEach(content => content.style.display = 'none');
             tabContents[button.dataset.tab].style.display = 'block';
-            plannerResultsContainer.style.display = 'none'; // Hide results when switching tabs
+            plannerResultsContainer.style.display = 'none';
         });
     });
     
@@ -1130,6 +1132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (button) {
             const productId = parseInt(button.dataset.id);
             const itemInCart = cart.find(item => item.id === productId);
+            if (!itemInCart) return;
             let newQuantity = itemInCart.quantity;
             if (button.classList.contains('increase-btn')) newQuantity++;
             else if (button.classList.contains('decrease-btn')) newQuantity--;
@@ -1154,25 +1157,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (toggle) {
             const icon = toggle.querySelector('i');
             const content = toggle.nextElementSibling;
-            const isOpening = !content.style.maxHeight;
+            const isOpening = !content.style.maxHeight || content.style.maxHeight === "0px";
 
-            // Close all other accordions
             document.querySelectorAll('.accordion-content').forEach(el => {
-                el.style.maxHeight = null;
-                el.previousElementSibling.querySelector('i').classList.remove('rotate-180');
+                if (el !== content) {
+                    el.style.maxHeight = null;
+                    el.previousElementSibling.querySelector('i').classList.remove('rotate-180');
+                }
             });
 
-            // Open the clicked one if it was closed
             if (isOpening) {
                 icon.classList.add('rotate-180');
                 content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                icon.classList.remove('rotate-180');
+                content.style.maxHeight = null;
             }
         }
     });
 
-    // --- Initialization ---
     function initializeTabs() {
-        // Set initial state
         document.querySelector('.tab-button[data-tab="gas-duration"]').classList.add('active');
         Object.values(tabContents).forEach(content => content.style.display = 'none');
         tabContents['gas-duration'].style.display = 'block';
